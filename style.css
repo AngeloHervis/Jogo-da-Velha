@@ -1,30 +1,103 @@
 body {
     font-family: sans-serif;
+    background-color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+h1 {
+    color: #333;
+}
+
+#playerInputs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.playerInput {
+    display: flex;
+    align-items: center;
+    margin: 0 0.5rem;
+}
+
+.playerInput label {
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+}
+
+.playerInput input {
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
 }
 
 #gameBoard {
     background-color: #232323;
     display: grid;
-    grid-template-columns: 6rem 6rem 6rem;
-    grid-template-rows: 6rem 6rem 6rem;
+    grid-template-columns: repeat(3, 6rem);
+    grid-template-rows: repeat(3, 6rem);
     gap: .5rem;
     margin-bottom: 1.5rem;
     max-width: 19rem;
-
 }
 
-#gameBoard span {
+.cell {
     background-color: #ddd;
     cursor: pointer;
     display: grid;
     place-content: center;
     font-size: 5rem;
+    transition: background-color 0.3s ease-in-out;
 }
 
-#gameBoard span.win {
+.cell.win {
     background-color: #25a340;
+}
+
+#turnPlayer {
+    color: #25a340;
 }
 
 .cursor-pointer {
     cursor: pointer;
+}
+
+button {
+    background-color: #25a340;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #1b7f28;
+}
+
+button:active {
+    background-color: #0e3a12;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .playerInput {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .playerInput label {
+        margin-bottom: 0.5rem;
+    }
+
+    .playerInput input {
+        width: 100%;
+    }
 }
